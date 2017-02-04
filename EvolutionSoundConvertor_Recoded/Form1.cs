@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * TODO:
+ * 1.Optimize code
+ * 2.Convert all sounds to .wav files
+ * 3.Multi-threading.
+*/
+using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -117,7 +123,7 @@ namespace EvolutionSoundConvertor_Recoded
             var num4 = 0;
 
             progressBar1.Invoke((MethodInvoker) delegate { progressBar1.Style = ProgressBarStyle.Marquee; });
-
+            //Notice: "H" is file's header, "B" is corresponding binary files(not for sounds), "F" is full sound. (According to http://forum.xentax.com/viewtopic.php?t=10782)
             foreach (var file in directoryInfo.GetFiles("*.wav", SearchOption.AllDirectories))
             {
                 var fileStream = new FileStream(file.FullName, FileMode.Open);
